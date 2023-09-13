@@ -1,13 +1,13 @@
-"customer_id","company_name","contact_name"
+customer_id,company_name,contact_name
 "ALFKI","Alfreds Futterkiste","Maria Anders"
 "ANATR","Ana Trujillo Emparedados y helados","Ana Trujillo"
 "ANTON","Antonio Moreno Taquería","Antonio Moreno"
 "AROUT","Around the Horn","Thomas Hardy"
 "BERGS","Berglunds snabbköp","Christina Berglund"
-"BLAUS","Blauer See Delikatessen","Hanna Moos"
+"BLAUS",Blauer See Delikatessen,"Hanna Moos"
 "BLONP","Blondesddsl père et fils","Frédérique Citeaux"
 "BOLID","Bólido Comidas preparadas","Martín Sommer"
-"BONAP","Bon app'","Laurence Lebihan"
+"BONAP","Bon app'",Laurence Lebihan
 "BOTTM","Bottom-Dollar Markets","Elizabeth Lincoln"
 "BSBEV","B's Beverages","Victoria Ashworth"
 "CACTU","Cactus Comidas para llevar","Patricio Simpson"
