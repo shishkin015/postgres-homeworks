@@ -21,7 +21,7 @@ try:
                         values = []
                         for row in reader:
                             values.append(tuple(row))
-                        cur.executemany("INSERT INTO employees VALUES (%s, %s, %s, %s, %s, %s)", values[1:])
+                        cur.executemany(f"INSERT INTO {table} VALUES (%s, %s, %s, %s, %s, %s)", values[1:])
                         cur.execute("SELECT * FROM employees")
                 elif table == customers:
                     with open(table, 'r', newline="") as csv_f:
@@ -29,7 +29,7 @@ try:
                         values = []
                         for row in reader:
                             values.append(tuple(row))
-                        cur.executemany("INSERT INTO customers VALUES (%s, %s, %s)", values[1:])
+                        cur.executemany(f"INSERT INTO {table} VALUES (%s, %s, %s)", values[1:])
                         cur.execute("SELECT * FROM customers")
                 else:
                     with open(table, 'r', newline="") as csv_f:
@@ -37,7 +37,7 @@ try:
                         values = []
                         for row in reader:
                             values.append(tuple(row))
-                        cur.executemany("INSERT INTO orders VALUES (%s, %s, %s, %s, %s)", values[1:])
+                        cur.executemany(f"INSERT INTO {table} VALUES (%s, %s, %s, %s, %s)", values[1:])
                         cur.execute("SELECT * FROM orders")
 
 
