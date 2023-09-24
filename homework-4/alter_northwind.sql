@@ -4,12 +4,16 @@ CREATE TABLE products
 (
 	CONSTRAINT chk_products_unit_price CHECK (unit_price > 0)
 );
+ИЛИ
+ALTER TABLE products ADD CONSTRAINT chc_products_unit_price CHECK (unit_price > 0)
 
 -- 2. Добавить ограничение, что поле discontinued таблицы products может содержать только значения 0 или 1
 CREATE TABLE products
 (
 	CONSTRAINT chk_products_discontinued CHECK (discontinued IN (0, 1))
 );
+ИЛИ
+ALTER TABLE products ADD CONSTRAINT chc_products_discontinued CHECK (discontinued IN (0,1))
 
 -- 3. Создать новую таблицу, содержащую все продукты, снятые с продажи (discontinued = 1)
 SELECT * INTO discontinued_products FROM products WHERE discontinued = 1;
@@ -21,3 +25,17 @@ SELECT order_id, product_id FROM order_details WHERE product_id IN (SELECT produ
 DELETE FROM order_details WHERE product_id IN (SELECT product_id FROM products WHERE discontinued = 1);
 DELETE FROM products WHERE discontinued = 1;
 SELECT * FROM order_details
+
+ИЛИ
+
+ALTER TABLE order_details
+DROP CONSTRAINT fk_order_details_products;
+
+DELETE FROM products WHERE discontinued = 1;
+
+DELETE FROM order_details
+WHERE product_id NOT IN (SELECT product_id FROM products);
+
+ALTER TABLE order_details
+ADD CONSTRAINT fk_order_details_products
+FOREIGN KEY (product_id) REFERENCES products(product_id);
